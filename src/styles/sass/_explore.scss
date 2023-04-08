@@ -1,0 +1,213 @@
+.explore-section {
+  background-color: $color-dark;
+  border-radius: 0px;
+  // margin-bottom: 2rem;
+  margin: 2rem 0;
+  padding: 2rem 1rem;
+  &__heading {
+    padding-top: 2rem;
+    text-align: center;
+    color: white;
+    h2 {
+      position: relative;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      span {
+        svg {
+          position: absolute;
+          top: 0;
+        }
+      }
+    }
+    p {
+      font-size: 0.7rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    // padding: 0rem 2rem 5rem 2rem;
+    // breakpoint for tablet
+    @media only screen and (min-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 2rem 3rem;
+    }
+    // breakpoint for desktop
+    @media only screen and (min-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .link-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    background-color: white;
+
+    // shadow
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    // hover effect
+    &:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s;
+    }
+    &__img {
+      // width: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+        aspect-ratio: 3/1;
+        object-fit: cover;
+        border-radius: 5px 5px 0 0;
+      }
+    }
+    &__text {
+      padding: 1.5rem;
+      // border: 1px solid red;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-between;
+
+      div.name__rating {
+        display: flex;
+        align-items: start;
+        width: 100%;
+        justify-content: space-between;
+        h3.heading {
+          font-size: 1.2rem;
+        }
+        .rating {
+          padding: 0.3rem 0.5rem;
+          border-radius: 4px;
+          font-size: 0.8rem;
+          font-weight: bold;
+        }
+
+        .rating--low {
+          background-color: rgb(252, 137, 137);
+          color: rgb(202, 1, 1);
+        }
+
+        .rating--medium {
+          background-color: rgb(252, 212, 137);
+          color: rgb(202, 132, 1);
+        }
+
+        .rating--high {
+          background-color: rgb(137, 252, 147);
+          color: rgb(18, 202, 1);
+        }
+      }
+      p.desc {
+        font-size: 0.7rem;
+        font-weight: 200;
+        width: 75%;
+        cursor: default;
+
+        .tooltip {
+          display: none;
+          position: absolute;
+          top: 0;
+          right: 0;
+          cursor: text;
+
+          background-color: #333;
+          padding: 1rem;
+          border-radius: 4px;
+          font-size: 0.9rem;
+          font-weight: 500;
+          width: 75%;
+          color: white;
+        }
+
+        &:hover {
+          .tooltip {
+            // show tooltip with animation
+            display: block;
+            animation: tooltip 0.5s ease-in-out;
+          }
+        }
+
+        // tooltip animation
+        @keyframes tooltip {
+          0% {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+      span.location {
+        background-color: rgb(137, 149, 252);
+        padding: 0.3rem 0.5rem;
+        border-radius: 4px;
+
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: white;
+      }
+    }
+  }
+
+  // explore-section for tablet and desktop
+  @media only screen and (min-width: $breakpoint-tablet) {
+    border-radius: 10px;
+    margin: 2rem ;
+    &__heading {
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        display: block;
+        font-size: 0.9rem;
+        color: rgb(168, 168, 168);
+        font-weight: 200;
+        width: 55%;
+        margin: 0 auto;
+      }
+    }
+
+    .card {
+      &__text {
+        h3.heading {
+          font-size: 1.5rem;
+        }
+        p.desc {
+          font-size: 1rem;
+        }
+        span.location {
+          font-size: 1rem;
+        }
+      }
+
+      &__img {
+        height: 250px;
+
+        img {
+          height: 100%;
+          width: 100%;
+
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

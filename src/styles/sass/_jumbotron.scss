@@ -1,0 +1,61 @@
+.jumbotron {
+  margin-top: 4rem;
+  position: relative;
+  color: white;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  
+
+  &__content {
+    padding: 2rem 1rem;
+    // breakpoint for tablet
+    max-width: 750px;
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    p {
+      font-size: 0.7rem;
+      font-weight: 200;
+      color: rgb(190, 190, 190);
+      width: 75%;
+      margin-bottom: 3.5rem;
+    }
+
+    // jumbotron__content breakpoint for tablet 
+    @media only screen and (min-width: $breakpoint-tablet) {
+      padding: 2rem 5rem;
+      h1 {
+        font-size: 2rem;
+      }
+      p{
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__button {
+    padding: 1rem ;
+    border: none;
+    border-radius: 5px;
+    background-color: $color-orange;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $color-dark;
+    }
+  }
+
+  // dark fi
+}

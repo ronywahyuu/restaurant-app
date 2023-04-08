@@ -1,0 +1,133 @@
+header {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.09);
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: #333;
+
+      // touch target must be at least 44px
+    }
+
+    &__logo {
+      font-family: "Pacifico", cursive;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      // color: $color-primary;
+
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    &__list {
+      display: none;
+    }
+    #hamburger {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.5rem;
+    }
+    // breakpoint for tablet
+    @media only screen and (min-width: $breakpoint-tablet) {
+      padding: 0rem 2rem;
+
+      #hamburger {
+        display: none;
+      }
+
+      &__list {
+        display: flex;
+        margin-left: auto;
+        gap: 2rem;
+        transform: translateX(0%);
+
+        li {
+          list-style: none;
+          font-size: 1rem;
+          font-weight: 700;
+          color: #333;
+          text-transform: uppercase;
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            color: $color-orange;
+          }
+
+          a {
+            text-decoration: none;
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+
+  .offcanvas {
+    // display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+
+    &--active {
+      transform: translateX(0%);
+    }
+
+    &__btn--close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #333;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      height: 100%;
+      padding: 2rem 0;
+
+      li {
+        list-style: none;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #333;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-orange;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
+  }
+}

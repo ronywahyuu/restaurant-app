@@ -1,0 +1,29 @@
+a{
+  // touch target must be at least 44px
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.footer {
+  &__container {
+    background-color: #333;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-size: 0.7rem;
+
+    p{
+      text-align: center;
+    }
+  }
+
+
+  // breakpoint for tablet
+  @media only screen and (min-width: $breakpoint-tablet) {
+    &__container {
+      // padding: 2rem 3rem;
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+}
