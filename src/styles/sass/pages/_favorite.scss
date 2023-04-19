@@ -1,0 +1,8 @@
+#favoritePage{
+  border: 1px solid red;
+  padding: 2rem 1rem;
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    padding: 2rem 5rem;
+  }
+}
