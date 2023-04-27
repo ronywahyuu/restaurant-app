@@ -21,8 +21,13 @@ async function getRestaurantImage(id) {
   const res = await axios.get(API_ENDPOINT.GET_IMAGE(id));
   return res.data;
 }
+
+function unformatDescription(description) {
+  return description.replace('...', '');
+}
 export {
   formatDescription,
   ratingColor,
   getRestaurantImage,
+  unformatDescription,
 };

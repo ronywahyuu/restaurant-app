@@ -47,12 +47,15 @@ class MenuList extends HTMLElement {
       `);
     this.innerHTML = `
       ${foodsList.innerHTML = `
+        <h3>Foods</h3>
+        <hr/>
         <div class="menu__list">
           ${renderFoodMenu.join('')}
         </div>
       `}
-      <hr/>
       ${drinksList.innerHTML = `
+        <h3>Drinks</h3>
+        <hr/>
         <div class="menu__list">
           ${renderDrinkMenu.join('')}
         </div>

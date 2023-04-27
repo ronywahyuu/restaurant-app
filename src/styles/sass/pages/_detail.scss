@@ -48,6 +48,11 @@
   }
 
   &__categories{
+    .categories{
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
     h4{
       font-weight: 600;
       margin-bottom: 1rem;
@@ -84,7 +89,7 @@
   &__info {
     // border: 1px solid red;
     .btn--add-to-fav {
-      margin-top: 3rem;
+      margin-top: 9rem;
       background-color: #dcdcdc;
       border: none;
       color: red;
@@ -105,6 +110,7 @@
       @media only screen and (min-width: $breakpoint-tablet) {
         margin-top: 0rem;
       }
+
     }
 
     h2.restaurant-title {

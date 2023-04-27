@@ -4,12 +4,13 @@ import './components/HeroSection';
 import './components/ServiceSection';
 import './components/ExploreSection';
 
-import data from '../DATA.json';
+// import data from '../DATA.json';
 // import DicodingRestaurantSource from './data/dicoding-restaurant-source';
 import UrlParser from './routes/url-parser';
 import routes from './routes/routes';
-// import DrawerInitiator from './utils/drawer-initiator';
 import DrawerInitiator from './utils/ui-initiator/drawer-initiator';
+
+// import DrawerInitiator from './utils/drawer-initiator';
 // ---------- udah bener ----------
 //
 // export default function App() {
@@ -67,6 +68,7 @@ class App {
       button: this._button,
       closeBtn: this._closeBtn,
       drawer: this._drawer,
+      navClose: document.querySelector('.offcanvas-list'),
     });
   }
 

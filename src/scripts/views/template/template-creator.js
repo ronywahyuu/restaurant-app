@@ -3,13 +3,47 @@ import { formatDescription } from '../../helpers';
 import '../../components/ReviewList';
 import '../../components/ReviewForm';
 import '../../components/MenuList';
-
+import * as helper from '../../helpers';
 
 const createRestaurantItemTemplate = (restaurant) => ` 
-  <div class="restaurant-item">
-
+<div class="card" tabindex="0">
+  <div class="card__img">
+    <img
+      src="https://restaurant-api.dicoding.dev/images/medium/14"
+      alt="image of restaurant"
+    />
   </div>
+  <div class="card__text">
+    <div class="name__rating">
+      <a href="#/detail/${restaurant.id}">
+        <h3 class="heading">
+          ${restaurant.name}
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+          </svg>
+
+        </h3>
+      </a>
+      <span class="rating ${helper.ratingColor(restaurant.rating)}">${restaurant.rating}</span>
+    </div>
+    <p class="desc">
+      ${helper.formatDescription(restaurant.description)}
+
+      <span class="tooltip">
+        ${restaurant.description}
+      </span>
+    </p>
+    <span class="location">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>  
+      ${restaurant.city}
+    </span>
+  </div>
+</div>
 `;
+
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <h1>Details</h1>
@@ -17,14 +51,13 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <div class="detail__image image-box">
       <img src="${`${CONFIG.BASE_URL}/${CONFIG.LARGE_IMAGE}/${restaurant.pictureId}`}" alt="Restaurant Image" />
       <div class="detail__categories">
-        <h4>Categories</h4>
-        <div>
-          <span class="detail__category">Jawa</span>
-          <span class="detail__category">Indonesia</span>
+        <h4>Categories :</h4>
+        <div class="categories">
         </div>
       </div>
     </div>
     <div class="detail__info info-box">
+      <div id="btnContainer"></div>
      
       <h2 class="restaurant-title">${restaurant.name}</h2>
       <p class="restaurant-address">${restaurant.address}</p>
@@ -49,6 +82,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
         <p>
           ${formatDescription(restaurant.description, 500)}
         </p>
+        <span class="read-more" tabindex="0">Read More</span>
       </div>
 
       <div class="detail__menu foods-menu">
@@ -65,8 +99,6 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
     <div class="detail__review review-box">
       <div class="review-form">
-        <h3>Write your review</h3>
-        <review-form></review-form>
       </div>
       <div class="all-review">
         <h3>All Reviews</h3>
@@ -77,4 +109,39 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
 
 `;
-export { createRestaurantItemTemplate, createRestaurantDetailTemplate };
+
+const createLikeButtonTemplate = () => `
+<button class="btn--add-to-fav" id="likeButton">
+  <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <span>
+    Add to favorite
+  </span>
+</button>
+`;
+
+const createLikedButtonTemplate = () => `
+<button class="btn--add-to-fav" id="likeButton">
+  <i class="fa fa-heart" aria-hidden="true"></i>
+  <span>
+    Remove favorite
+  </span>
+</button>
+`;
+
+const createEmptyStateTemplate = () => `
+  <div class="empty-state">
+    <img src="./images/notfound.svg" alt="Empty State" />
+    <h3>Oops, there is no data here</h3>
+  </div>
+`
+
+const createCategoriesTemplate = () => {
+
+};
+export {
+  createRestaurantItemTemplate,
+  createRestaurantDetailTemplate,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createEmptyStateTemplate
+};

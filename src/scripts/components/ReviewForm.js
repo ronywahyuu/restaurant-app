@@ -3,9 +3,21 @@ class ReviewForm extends HTMLElement {
     this.render();
   }
 
+  set createReview(event) {
+    this._event = event;
+    this.render();
+  }
+
+  get value() {
+    const name = this.querySelector('#name').value;
+    const review = this.querySelector('#review').value;
+    return { name, review };
+  }
+
   render() {
     this.innerHTML = `
-      <form>
+      <h3>Write your review</h3>
+      <form id="formCreate">
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your name" />
@@ -17,6 +29,7 @@ class ReviewForm extends HTMLElement {
         <button type="submit" class="btn btn--primary">Submit</button>
       </form>
     `;
+    this.querySelector('#formCreate').addEventListener('submit', this._event);
   }
 }
 

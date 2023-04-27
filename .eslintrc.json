@@ -1,25 +1,27 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": "airbnb-base",
-    "overrides": [
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
-        // disable non underscored dangling underscore
-        "no-underscore-dangle": "off",
-        "no-console": "off"
-    },
-    "ignorePatterns":[
-        "node_modules/*",
-        "dist/*",
-        "karma.conf.js",
-        "webpack.*.js",
-        "specs/*"
-    ]
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "airbnb-base",
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    // disable non underscored dangling underscore
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": 0,
+    "no-console": 0,
+    "no-restricted-globals": 0,
+    "linebreak-style": 0
+  },
+  "ignorePatterns": [
+    "node_modules/*",
+    "dist/*",
+    "karma.conf.js",
+    "webpack.*.js",
+    "specs/*"
+  ]
 }

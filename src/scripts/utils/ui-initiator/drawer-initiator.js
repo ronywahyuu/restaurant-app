@@ -1,6 +1,9 @@
 const DrawerInitiator = {
   init({
-    button, closeBtn, drawer,
+    button,
+    closeBtn,
+    drawer,
+    navClose,
   }) {
     button.addEventListener('click', (event) => {
       this._toggleDrawer(event, drawer);
@@ -19,7 +22,12 @@ const DrawerInitiator = {
   _closeDrawer(event, drawer) {
     event.stopPropagation();
     drawer.classList.remove('offcanvas--active');
+
+    if (event.target.classList.contains('offcanvas-list')) {
+      drawer.classList.remove('offcanvas--active');
+    }
   },
+
 };
 
 export default DrawerInitiator;
