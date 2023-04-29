@@ -23,7 +23,6 @@ class RestaurantDataSource {
     // return res;
     const res = await fetch(API_ENDPOINT.DETAIL(id), {
       method: 'GET',
-      cache: 'no-cache',
     });
     const resJson = await res.json();
     return resJson;

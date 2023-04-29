@@ -2,7 +2,8 @@ import 'regenerator-runtime'; /* for async await transpile */
 // import '../styles/main.css';
 import '../styles/main.scss';
 
-import App from './app';
+// import App from './app';
+import App from './views/app';
 import swRegister from './utils/sw-register';
 // import CONFIG from './globals/config';
 
