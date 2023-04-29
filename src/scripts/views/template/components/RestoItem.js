@@ -1,5 +1,7 @@
-import CONFIG from '../globals/config';
-import * as helper from '../helpers';
+// import CONFIG from '../globals/config';
+// import * as helper from '../helpers';
+import CONFIG from '../../../globals/config';
+import * as helper from '../../../utils/helpers';
 
 class RestoItem extends HTMLElement {
   set restaurant(restaurant) {
@@ -11,7 +13,7 @@ class RestoItem extends HTMLElement {
     const {
       id, name, description, pictureId, city, rating,
     } = this._restaurant;
-    const image = `${CONFIG.BASE_URL}/${CONFIG.LARGE_IMAGE}/${pictureId}`;
+    const image = `${CONFIG.BASE_URL}/${CONFIG.SMALL_IMAGE}/${pictureId}`;
     this.innerHTML = `
         <div class="card" tabindex="0">
           <div class="card__img">

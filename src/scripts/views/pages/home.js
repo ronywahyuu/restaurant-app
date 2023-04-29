@@ -1,11 +1,14 @@
 import RestaurantDataSource from '../../data/restaurant-source';
-import '../../components/HeroSection';
+// import '../../components/HeroSection';
+import '../template/components/HeroSection';
+import { createLoadingAnimation } from '../template/template-creator';
+
 // import data from '../../../DATA.json';
 
 const Home = {
   async render() {
     return `
-      <div className="content">
+      <div class="content">
         <hero-section></hero-section>
         <service-section></service-section>
         <explore-section></explore-section>
@@ -14,12 +17,20 @@ const Home = {
   },
 
   async afterRender() {
-    const restaurantData = await RestaurantDataSource.listRestaurants();
-    const { restaurants } = restaurantData.data;
-    // console.log('🚀 ~ file: home.js:17 ~ afterRender ~ restaurants:', restaurants);
-    // const mapRestoData = restaurants.map((restaurant) => restaurant);
     const restaurantListElement = document.querySelector('restaurant-list');
-    restaurantListElement.restaurants = restaurants;
+    const errorElement = document.createElement('error-message');
+    // const exploreSection = document.querySelector('explore-section');
+    restaurantListElement.innerHTML = createLoadingAnimation();
+    try {
+      const restaurantData = await RestaurantDataSource.listRestaurants();
+      const { restaurants } = restaurantData.data;
+      restaurantListElement.restaurants = restaurants;
+    } catch (error) {
+      // this.renderError(error);
+      restaurantListElement.innerHTML = '';
+      restaurantListElement.appendChild(errorElement);
+      console.log(error);
+    }
   },
 };
 

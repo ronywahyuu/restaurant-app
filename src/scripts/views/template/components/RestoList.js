@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import './RestoItem';
+import './ErrorMessage';
 
 class RestoList extends HTMLElement {
   // connectedCallback() {

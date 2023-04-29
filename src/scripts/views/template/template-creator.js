@@ -1,15 +1,19 @@
 import CONFIG from '../../globals/config';
-import { formatDescription } from '../../helpers';
-import '../../components/ReviewList';
-import '../../components/ReviewForm';
-import '../../components/MenuList';
-import * as helper from '../../helpers';
+import { formatDescription } from '../../utils/helpers';
+// import '../../components/ReviewList';
+// import '../../components/ReviewForm';
+// import '../../components/MenuList';
+import './components/ReviewList';
+import './components/ReviewForm';
+import './components/MenuList';
+
+import * as helper from '../../utils/helpers';
 
 const createRestaurantItemTemplate = (restaurant) => ` 
 <div class="card" tabindex="0">
   <div class="card__img">
     <img
-      src="https://restaurant-api.dicoding.dev/images/medium/14"
+      src="${`${CONFIG.BASE_URL}/${CONFIG.LARGE_IMAGE}/${restaurant.pictureId}`}"
       alt="image of restaurant"
     />
   </div>
@@ -44,9 +48,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 </div>
 `;
 
-
 const createRestaurantDetailTemplate = (restaurant) => `
-  <h1>Details</h1>
   <div class="detail__content">
     <div class="detail__image image-box">
       <img src="${`${CONFIG.BASE_URL}/${CONFIG.LARGE_IMAGE}/${restaurant.pictureId}`}" alt="Restaurant Image" />
@@ -79,8 +81,8 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
       <div class="detail__description">
         <h3>Description</h3>
-        <p>
-          ${formatDescription(restaurant.description, 500)}
+        <p id="description">
+          ${formatDescription(restaurant.description, 300)}
         </p>
         <span class="read-more" tabindex="0">Read More</span>
       </div>
@@ -102,6 +104,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
       </div>
       <div class="all-review">
         <h3>All Reviews</h3>
+        <hr/>
         <review-list></review-list>
       </div>
     </div>
@@ -133,15 +136,20 @@ const createEmptyStateTemplate = () => `
     <img src="./images/notfound.svg" alt="Empty State" />
     <h3>Oops, there is no data here</h3>
   </div>
-`
+`;
 
-const createCategoriesTemplate = () => {
+const createLoadingAnimation = () => `
+  <div class="loading">
+    <h3 class="loading__text">Loading...</h3>
+    <div class="loading__spinner"></div>
+  </div>
+`;
 
-};
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
-  createEmptyStateTemplate
+  createEmptyStateTemplate,
+  createLoadingAnimation,
 };

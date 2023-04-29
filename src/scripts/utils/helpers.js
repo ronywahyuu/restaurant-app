@@ -1,5 +1,5 @@
 import axios from 'axios';
-import API_ENDPOINT from './globals/api-endpoint';
+import API_ENDPOINT from '../globals/api-endpoint';
 
 function formatDescription(description, limit = 100) {
   if (description.length > limit) {
@@ -25,9 +25,14 @@ async function getRestaurantImage(id) {
 function unformatDescription(description) {
   return description.replace('...', '');
 }
+
+function isEmptyOrSpaces(str) {
+  return str === null || str.match(/^ *$/) !== null;
+}
 export {
   formatDescription,
   ratingColor,
   getRestaurantImage,
   unformatDescription,
+  isEmptyOrSpaces,
 };

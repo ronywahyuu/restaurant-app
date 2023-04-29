@@ -1,53 +1,19 @@
-import './components/NavBar';
-import './components/RestoList';
-import './components/HeroSection';
-import './components/ServiceSection';
-import './components/ExploreSection';
+// import './components/RestoList';
+// import './components/HeroSection';
+// import './components/ServiceSection';
+// import './components/ExploreSection';
 
+import './views/template/components/RestoList';
+import './views/template/components/HeroSection';
+import './views/template/components/ServiceSection';
+import './views/template/components/ExploreSection';
+import './views/template/components/RestoDetail';
+import './views/template/components/ErrorMessage';
 // import data from '../DATA.json';
 // import DicodingRestaurantSource from './data/dicoding-restaurant-source';
 import UrlParser from './routes/url-parser';
 import routes from './routes/routes';
 import DrawerInitiator from './utils/ui-initiator/drawer-initiator';
-
-// import DrawerInitiator from './utils/drawer-initiator';
-// ---------- udah bener ----------
-//
-// export default function App() {
-//   // offcanvas
-//   const offcanvasElement = document.querySelector('.offcanvas');
-//   const hamburgerElement = document.querySelector('.hamburger');
-
-//   hamburgerElement.addEventListener('click', () => {
-//     const closeBtn = document.querySelector('.offcanvas__btn--close');
-//     const ulElement = document.querySelectorAll('.offcanvas__list');
-//     offcanvasElement.classList.add('offcanvas--active');
-
-//     closeBtn.addEventListener('click', () => {
-//       offcanvasElement.classList.remove('offcanvas--active');
-//     });
-
-//     ulElement.forEach((ul) => {
-//       ul.addEventListener('click', () => {
-//         offcanvasElement.classList.remove('offcanvas--active');
-//       });
-//     });
-//   });
-//   const restaurantData = data.restaurants;
-
-//   const mapRestoData = restaurantData.map((restaurant) => restaurant);
-
-//   const restaurantListElement = document.querySelector('restaurant-list');
-
-//   // restaurantListElement.restaurants(mapRestoData);
-//   const renderResult = (results) => {
-//     restaurantListElement.restaurants = results;
-//   };
-
-//   renderResult(mapRestoData);
-// }
-
-// ---------- uji coba ----------
 
 class App {
   constructor({
@@ -68,7 +34,7 @@ class App {
       button: this._button,
       closeBtn: this._closeBtn,
       drawer: this._drawer,
-      navClose: document.querySelector('.offcanvas-list'),
+      navLink: document.querySelectorAll('.offcanvas-list'),
     });
   }
 

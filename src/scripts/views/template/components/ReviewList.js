@@ -13,6 +13,7 @@ class ReviewList extends HTMLElement {
   render() {
     // console.log(this._reviews);
     const reviewsData = this._reviews;
+    // console.log("🚀 ~ file: ReviewList.js:16 ~ ReviewList ~ render ~ reviewsData:", reviewsData)
     this.innerHTML = `
       <div class="review-list">
       </div>

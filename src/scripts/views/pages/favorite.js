@@ -1,7 +1,7 @@
-import '../../components/RestoList';
-import * as helper from '../../helpers';
+// import '../../components/RestoList';
+import '../template/components/RestoList';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurants-idb';
-import { createRestaurantItemTemplate, createEmptyStateTemplate } from '../template/template-creator';
+import { createEmptyStateTemplate } from '../template/template-creator';
 
 const Favorite = {
   async render() {
@@ -21,20 +21,23 @@ const Favorite = {
     const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
     const favoriteContainer = document.querySelector('.favorite-container');
     const emptyStateContainer = document.querySelector('.empty-state-container');
+
+    // ==================== EMPTY STATE ====================
     if (restaurants.length === 0) {
       // hide favorite container
       favoriteContainer.style.display = 'none';
-
       emptyStateContainer.innerHTML = createEmptyStateTemplate();
     }
-    restaurants.forEach((restaurant) => {
-      emptyStateContainer.style.display = 'none';
-      favoriteContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-    });
 
-    console.log('🚀 ~ file: favorite.js:56 ~ afterRender ~ restaurants:', restaurants);
-    // const favoriteContainer = document.querySelector('#favoritePage');
-    // const favoriteData = await helper
+    // ==================== RESTAURANT ITEM ====================
+    restaurants.forEach((restaurant) => {
+      const restoItemElement = document.createElement('restaurant-item');
+      emptyStateContainer.style.display = 'none';
+      // favoriteContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+      restoItemElement.restaurant = restaurant;
+      favoriteContainer.appendChild(restoItemElement);
+      // favoriteContainer.innerHTML +=
+    });
   },
 };
 

@@ -1,5 +1,4 @@
 // import RestaurantDataSource from '../../data/restaurant-source';
-import '../../components/LikeButton';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurants-idb';
 import { createLikeButtonTemplate, createLikedButtonTemplate } from '../../views/template/template-creator';
 

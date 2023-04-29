@@ -9,6 +9,7 @@ const CONFIG = {
   DATABASE_NAME: 'los-platos-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants',
+  WEB_SOCKET_SERVER: 'wss://los-platos.dev',
 };
 
 export default CONFIG;

@@ -12,6 +12,7 @@
   "rules": {
     // disable non underscored dangling underscore
     "no-underscore-dangle": "off",
+    "no-alert": "off",
     "import/no-extraneous-dependencies": 0,
     "no-console": 0,
     "no-restricted-globals": 0,
