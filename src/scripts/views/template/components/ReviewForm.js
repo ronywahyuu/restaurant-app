@@ -37,7 +37,6 @@ class ReviewForm extends HTMLElement {
       this._event();
       this.querySelector('#name').value = '';
       this.querySelector('#review').value = '';
-      window.location.reload();
     });
   }
 }

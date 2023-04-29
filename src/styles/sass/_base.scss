@@ -54,6 +54,20 @@ hr{
   margin-bottom: 1rem;
 }
 
+// touch target dimensions element should be at least 48px high and wide
+button, 
+a,
+input,
+text,
+textarea{
+  min-height: 44px;
+  min-width: 44px;
+}
+
+textarea{
+  min-height: 100px;
+}
+
 // skip to content
 .skip-to-content-link {
   text-decoration: none;
