@@ -10,7 +10,6 @@ const Home = {
     return `
       <div class="content">
         <hero-section></hero-section>
-        <service-section></service-section>
         <explore-section></explore-section>
       </div>
     `;

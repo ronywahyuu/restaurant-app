@@ -18,7 +18,8 @@ class RestoItem extends HTMLElement {
         <div class="card" tabindex="0">
           <div class="card__img">
             <img
-              src=${image}
+              class="lazyload"
+              data-src=${image}
               alt="image of ${name} restaurant"
             />
           </div>

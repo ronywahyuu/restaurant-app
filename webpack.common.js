@@ -2,6 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -18,16 +22,17 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
-          // {
-          //   loader: 'style-loader',
-          // },
-          // {
-          //   loader: 'css-loader',
-          // },
-        ],
+          {
+            loader : 'sass-loader',
+          }
+        ]
+        // use: [
+        //   'style-loader',
+        //   'css-loader',
+        //   'sass-loader'
+        // ],
       },
     ],
   },
@@ -43,6 +48,18 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+    new ImageminWebpackPlugin({
+      plugins : [
+        ImageminMozjpeg({
+          quality : 50,
+          progressive : true,
+        }),
+      ]
+    }),
+    new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin({
+      filename : '[name].[contenthash].css',
     }),
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
