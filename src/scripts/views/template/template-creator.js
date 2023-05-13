@@ -114,7 +114,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 `;
 
 const createLikeButtonTemplate = () => `
-<button class="btn--add-to-fav" id="likeButton">
+<button class="btn--add-to-fav" aria-label="like this restaurant" id="likeButton">
   <i class="fa fa-heart-o" aria-hidden="true"></i>
   <span>
     Add to favorite
@@ -123,7 +123,7 @@ const createLikeButtonTemplate = () => `
 `;
 
 const createLikedButtonTemplate = () => `
-<button class="btn--add-to-fav" id="likeButton">
+<button aria-label="unlike this restaurant" class="btn--add-to-fav" id="likedButton">
   <i class="fa fa-heart" aria-hidden="true"></i>
   <span>
     Remove favorite

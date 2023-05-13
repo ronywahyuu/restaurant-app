@@ -1,8 +1,10 @@
 // ==================== DATA SOURCE ====================
 import RestaurantDataSource from '../../data/restaurant-source';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurants-idb';
 
 // ==================== UI INITIATOR ====================
-import LikeButtonInitiator from '../../utils/ui-initiator/like-button-initiator';
+// import LikeButtonInitiator from '../../utils/ui-initiator/like-button-initiator';
+import LikeButtonPresenter from '../../utils/ui-initiator/like-button-presenter';
 import ReviewInitiator from '../../utils/ui-initiator/review-initiator';
 import MenuListInitiator from '../../utils/ui-initiator/menu-list-initiator';
 import CategoriesInitiator from '../../utils/ui-initiator/categories-initiator';
@@ -46,8 +48,9 @@ const Detail = {
         restaurantContainer.appendChild(restoDetail);
       }
 
-      LikeButtonInitiator.init({
+      LikeButtonPresenter.init({
         likeButtonContainer: document.querySelector('#btnContainer'),
+        favoriteRestaurants: FavoriteRestaurantIdb,
         restaurant: {
           id: restaurant.id,
           name: restaurant.name,
