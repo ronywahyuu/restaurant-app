@@ -1,5 +1,6 @@
 import axios from 'axios';
 import API_ENDPOINT from '../globals/api-endpoint';
+// eslint-disable-next-line import/no-cycle
 
 function formatDescription(description, limit = 100) {
   if (description.length > limit) {
@@ -29,6 +30,7 @@ function unformatDescription(description) {
 function isEmptyOrSpaces(str) {
   return str === null || str.match(/^ *$/) !== null;
 }
+
 export {
   formatDescription,
   ratingColor,

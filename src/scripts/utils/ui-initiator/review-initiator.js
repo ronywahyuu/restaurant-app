@@ -1,6 +1,7 @@
 import axios from 'axios';
 import API_ENDPOINT from '../../globals/api-endpoint';
 import { isEmptyOrSpaces } from '../helpers';
+import { createToastTemplate } from '../../views/template/template-creator';
 
 const ReviewInitiator = {
   async init({ reviewContainer, reviewFormContainer, reviewsData }) {
@@ -20,7 +21,8 @@ const ReviewInitiator = {
     const onReviewSubmit = async () => {
       try {
         if (isEmptyOrSpaces(reviewForm.value.name) || isEmptyOrSpaces(reviewForm.value.review)) {
-          alert('Please fill all the form');
+          // alert('Please fill all the form');
+          reviewFormElement._showToast(createToastTemplate('Please fill all the fields!', 'error'));
           return;
         }
 
@@ -35,13 +37,16 @@ const ReviewInitiator = {
             ...res.data.customerReviews[res.data.customerReviews.length - 1],
           });
           reviewListElement.reviews = this._reviewsData;
+          reviewFormElement._showToast(createToastTemplate('Review sent!', 'success'));
+
           window.scrollTo({
             top: document.body.scrollHeight,
             behavior: 'smooth',
           });
         }
       } catch (error) {
-        alert('Failed to submit review');
+        // alert('Failed to submit review');
+        reviewFormElement._showToast(createToastTemplate('Failed to submit review!', 'error'));
         console.log(error);
       }
     };

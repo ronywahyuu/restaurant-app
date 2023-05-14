@@ -1,5 +1,4 @@
 import CONFIG from '../../globals/config';
-import { formatDescription } from '../../utils/helpers';
 // import '../../components/ReviewList';
 // import '../../components/ReviewForm';
 // import '../../components/MenuList';
@@ -8,6 +7,7 @@ import './components/ReviewForm';
 import './components/MenuList';
 
 import * as helper from '../../utils/helpers';
+import { formatDescription } from '../../utils/helpers';
 
 const createRestaurantItemTemplate = (restaurant) => ` 
 <div class="card" tabindex="0">
@@ -28,7 +28,9 @@ const createRestaurantItemTemplate = (restaurant) => `
 
         </h3>
       </a>
-      <span class="rating ${helper.ratingColor(restaurant.rating)}">${restaurant.rating}</span>
+      <span class="rating ${helper.ratingColor(restaurant.rating)}">${
+  restaurant.rating
+}</span>
     </div>
     <p class="desc">
       ${helper.formatDescription(restaurant.description)}
@@ -134,7 +136,20 @@ const createLikedButtonTemplate = () => `
 const createEmptyStateTemplate = () => `
   <div class="empty-state">
     <img src="./images/notfound.svg" alt="Empty State" />
-    <h3>Oops, there is no data here</h3>
+    <h3 class="error-message-text">Oops, there is no data yet</h3>
+  </div>
+`;
+
+const createToastTemplate = (message, type) => `
+  <div class="toast ${type === 'error' ? 'toast-error' : 'toast-success'}">
+  <span>
+  ${
+  type === 'error'
+    ? '<i class="fa fa-times" aria-hidden="true"></i>'
+    : '<i class="fa fa-check" aria-hidden="true"></i>'
+}
+  </span>
+    <p class="toast-message">${message}  </p>
   </div>
 `;
 
@@ -152,4 +167,5 @@ export {
   createLikedButtonTemplate,
   createEmptyStateTemplate,
   createLoadingAnimation,
+  createToastTemplate,
 };
