@@ -36,6 +36,7 @@ Scenario('liking one restaurant', async ({ I }) => {
 
   I.click('#likeButton');
 
+  I.waitForElement('#likedButton');
   // start liking
   I.amOnPage('/#/favorite');
   I.waitForElement('.favorite-container', 5);
@@ -54,7 +55,7 @@ Scenario('liking one restaurant', async ({ I }) => {
 // unliking one restaurant
 Scenario('unliking one restaurant', async ({ I }) => {
   // like one restaurant first
-  I.amOnPage('/');
+  I.amOnPage('/#');
 
   I.waitForElement('restaurant-item a', 5);
   I.seeElement('restaurant-item a');
@@ -65,6 +66,8 @@ Scenario('unliking one restaurant', async ({ I }) => {
   I.seeElement('#likeButton');
 
   I.click('#likeButton');
+
+  I.waitForElement('#likedButton');
 
   // start unliking
   I.amOnPage('/#/favorite');
