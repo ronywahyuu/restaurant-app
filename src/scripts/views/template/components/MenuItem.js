@@ -3,15 +3,6 @@ class MenuItem extends HTMLElement {
     this.render();
   }
 
-  // set menu(menu) {
-  //   this._menu = menu;
-  //   this.render();
-  // }
-
-  // get menu() {
-  //   return this._menu || {};
-  // }
-
   render() {
     // const { name, price } = this.menu;
     const name = this.getAttribute('name');

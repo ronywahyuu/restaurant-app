@@ -5,18 +5,30 @@ class HeroSection extends HTMLElement {
 
   render() {
     this.innerHTML = `
+      <style>
+        picture img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: -1;
+          /* filter */
+          filter: brightness(0.5);
+        }
+      </style>
       <section
         id="heroSection"
         class="jumbotron"
-        style="
-          background-image: linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0.5),
-              rgba(0, 0, 0, 0.5)
-            ),
-            url('./images/heros/hero-image_4.jpg');
-        "
       >
+      <picture>
+        <source media="(max-width: 600px)" srcset="./images/heros/hero-image_4-small.jpg">      
+        <source media="(max-width: 900px)" srcset="./images/heros/hero-image_4-large.jpg">
+        <img src="./images/heros/hero-image_4-large.jpg" alt="Hero Image" class="jumbotron__image">
+      </picture>
         <div class="jumbotron__content">
           <h1 class="jumbotron__title">
             Find Your Next Favorite Restaurant with Our Curated List

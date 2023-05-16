@@ -15,6 +15,16 @@ class ReviewForm extends HTMLElement {
     return { name, review };
   }
 
+  _showToast(toastContainer) {
+    const msgAlert = this.querySelector('.msg-alert');
+    msgAlert.innerHTML = '';
+    msgAlert.innerHTML = toastContainer;
+
+    setTimeout(() => {
+      msgAlert.innerHTML = '';
+    }, 5000);
+  }
+
   render() {
     this.innerHTML = `
       <h3>Write your review</h3>
@@ -22,14 +32,17 @@ class ReviewForm extends HTMLElement {
       <form id="formCreate">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required />
+          <input type="text" id="name" name="name" placeholder="Your name" />
         </div>
         <div class="form-group">
           <label for="review">Review</label>
-          <textarea id="review" name="review" placeholder="Your review" required></textarea>
+          <textarea id="review" name="review" placeholder="Your review"></textarea>
         </div>
         <button type="submit" class="btn btn--primary btn-disabled">Submit</button>
       </form>
+      <div class="msg-alert">
+
+      </div>
     `;
     this.querySelector('#formCreate').addEventListener('submit', (event) => {
       event.preventDefault();

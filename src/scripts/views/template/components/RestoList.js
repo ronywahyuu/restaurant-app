@@ -1,25 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 import './RestoItem';
-import './ErrorMessage';
 
 class RestoList extends HTMLElement {
-  // connectedCallback() {
-  //   this.render();
-  // }
-
-  // set restaurants(restaurant) {
-  //   // eslint-disable-next-line no-underscore-dangle
-  //   this._restaurants = restaurant;
-  //   this.render();
-  // }
-
   set restaurants(restaurant) {
     this._restaurants = restaurant;
     this.render();
   }
 
   render() {
-    // console.log(this._restaurants);
     const restaurantData = this._restaurants;
 
     this.innerHTML = `
