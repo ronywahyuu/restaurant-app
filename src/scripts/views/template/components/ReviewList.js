@@ -1,10 +1,6 @@
 import './ReviewItem';
 
 class ReviewList extends HTMLElement {
-  // connectedCallback() {
-  //   this.render();
-  // }
-
   set reviews(review) {
     this._reviews = review;
     this.render();

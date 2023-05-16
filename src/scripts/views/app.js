@@ -1,8 +1,6 @@
 import './template/components/RestoList';
 import './template/components/HeroSection';
-import './template/components/ServiceSection';
 import './template/components/ExploreSection';
-import './template/components/RestoDetail';
 import './template/components/ErrorMessage';
 
 import UrlParser from '../routes/url-parser';
@@ -18,12 +16,12 @@ class App {
     this._drawer = drawer;
 
     this._mainElement = document.querySelector('#mainContent');
-    // this.renderPage();
 
     this._initialAppShell();
   }
 
-  _initialAppShell() {
+  async _initialAppShell() {
+    // const DrawerInitiator = (await import('../utils/ui-initiator/drawer-initiator')).default;
     DrawerInitiator.init({
       button: this._button,
       closeBtn: this._closeBtn,
@@ -33,6 +31,8 @@ class App {
   }
 
   async renderPage() {
+    // const UrlParser = (await import('../routes/url-parser')).default;
+    // const routes = (await import('../routes/routes')).default;
     const url = UrlParser.parseActiveUrlWithCombiner();
     const page = routes[url];
     this._mainElement.innerHTML = await page.render();

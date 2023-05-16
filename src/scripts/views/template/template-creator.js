@@ -117,7 +117,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 const createLikeButtonTemplate = () => `
 <button class="btn--add-to-fav" aria-label="like this restaurant" id="likeButton">
-  <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <i class="fa-regular fa-heart" aria-hidden="true"></i>
   <span>
     Add to favorite
   </span>
@@ -126,7 +126,7 @@ const createLikeButtonTemplate = () => `
 
 const createLikedButtonTemplate = () => `
 <button aria-label="unlike this restaurant" class="btn--add-to-fav" id="likedButton">
-  <i class="fa fa-heart" aria-hidden="true"></i>
+  <i class="fa-solid fa-heart" aria-hidden="true"></i>
   <span>
     Remove favorite
   </span>
@@ -135,7 +135,7 @@ const createLikedButtonTemplate = () => `
 
 const createEmptyStateTemplate = () => `
   <div class="empty-state">
-    <img src="./images/notfound.svg" alt="Empty State" />
+    <img src="./images/notfound.svg" width="200" height="200" alt="Empty State" />
     <h3 class="error-message-text">Oops, there is no data yet</h3>
   </div>
 `;

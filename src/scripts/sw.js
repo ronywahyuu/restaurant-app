@@ -11,11 +11,25 @@ const assetsToCache = [
   './icons/maskable_icon_x192.png',
   './icons/maskable_icon_x384.png',
   './icons/maskable_icon_x512.png',
+  // hero
+  './images/heros/hero-image_1-large.jpg',
+  './images/heros/hero-image_1-small.jpg',
+  './images/heros/hero-image_4-large.jpg',
+  './images/heros/hero-image_4-small.jpg',
   './index.html',
   './favicon.png',
   './app.bundle.js',
   './app.webmanifest',
   './sw.bundle.js',
+
+  './35.bundle.js',
+  './918.bundle.js',
+  './773.bundle.js',
+  './521.bundle.js',
+  './150.bundle.js',
+  './708.bundle.js',
+  './869.bundle.js',
+  './502.bundle.js',
 ];
 
 self.addEventListener('install', (event) => {
